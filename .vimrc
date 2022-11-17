@@ -61,5 +61,13 @@ nmap <silent> gr <Plug>(coc-references)
 " Order imports
 nmap <leader>i :CocCommand tsserver.organizeImports<cr>
 
+" Add CoC autocomplite by tab
+let g:copilot_no_tab_map = v:true
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ exists('b:_copilot.suggestions') ? copilot#Accept("\<CR>") :
+      \ CheckBackSpace() ? "\<Tab>" :
+      \ coc#refresh()
+
 " Source Vim configuration file and install plugins
 nnoremap <silent><leader>1 :source ~/.vimrc \| :PlugInstall<CR>
