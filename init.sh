@@ -1,6 +1,4 @@
-#/bin/bash
-
-echo 'Starting applying config files'
+﻿echo 'Starting applying config files'
 
 if [ -f ~/.zshrc ]; then
   cp ~/.zshrc ~/.zshrc.backup.before.init
@@ -16,9 +14,8 @@ if [ -f ~/.vimrc ]; then
   rm -f ~/.vimrc
 fi
 
-ln -s ./.zshrc ~/.zshrc
-ln -s ./.vimrc ~/.vimrc
-source ~/.zshrc
+cp .zshrc ~/.zshrc
+cp .vimrc ~/.vimrc
 
 echo 'Config has been applied'
-echo "Don't forget to run <leader>1 or :PlugInstall in your vim"
+echo "Don't forget to run <leader>1 or :PlugInstall in your vim and restart terminal"
